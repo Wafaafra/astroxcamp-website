@@ -1,0 +1,421 @@
+
+/* ==========================================
+   ASTROCAMP 2 - GLOBAL STYLES
+========================================== */
+
+/* Google Font - must come before Tailwind */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&display=swap");
+
+/* Tailwind CSS */
+@import "tailwindcss";
+
+/* ==========================================
+   GLOBAL SETTINGS
+========================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #070617;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ==========================================
+   FUTURISTIC NAVBAR
+========================================== */
+
+.astro-nav-link {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.astro-nav-link:hover {
+  text-shadow: 0 0 12px rgba(255, 105, 180, 0.8);
+}
+
+.astro-join-button {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  transition: all 0.3s ease;
+}
+
+.astro-join-button:hover {
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================================
+   DANCING / TWINKLING STARS
+========================================== */
+
+.space-star {
+  opacity: 0.4;
+  animation: star-dance ease-in-out infinite alternate;
+  will-change: opacity, transform;
+}
+
+@keyframes star-dance {
+  0% {
+    opacity: 0.15;
+    transform: translate3d(0, 0, 0) scale(0.65);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate3d(4px, -7px, 0) scale(1.5);
+  }
+
+  100% {
+    opacity: 0.35;
+    transform: translate3d(-4px, 5px, 0) scale(0.8);
+  }
+}
+
+/* ==========================================
+   FLOATING ASTEROIDS
+========================================== */
+
+.space-asteroid {
+  animation: asteroid-float linear infinite alternate;
+  box-shadow: 0 0 8px rgba(170, 190, 220, 0.4);
+  will-change: transform;
+}
+
+@keyframes asteroid-float {
+  from {
+    transform: translate3d(-40px, 30px, 0) rotate(0deg);
+  }
+
+  to {
+    transform: translate3d(100px, -70px, 0) rotate(240deg);
+  }
+}
+
+/* ==========================================
+   COLORFUL SHOOTING METEORS
+========================================== */
+
+.space-meteor {
+  width: 140px;
+  height: 3px;
+  opacity: 0;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--meteor-color, #159fe8),
+    #ffffff
+  );
+
+  filter: drop-shadow(
+    0 0 8px var(--meteor-color, #159fe8)
+  );
+
+  animation: meteor-flight linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes meteor-flight {
+  0%,
+  72% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0)
+      rotate(-35deg) scaleX(0.5);
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+    transform: translate3d(-250px, 180px, 0)
+      rotate(-35deg) scaleX(1.2);
+  }
+
+  92%,
+  100% {
+    opacity: 0;
+    transform: translate3d(-450px, 320px, 0)
+      rotate(-35deg) scaleX(0.5);
+  }
+}
+
+/* ==========================================
+   EXTRA SHOOTING STARS
+========================================== */
+
+.shooting-star {
+  position: absolute;
+  width: 130px;
+  height: 2px;
+  opacity: 0;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #159fe8,
+    #ffffff
+  );
+
+  filter: drop-shadow(0 0 5px #159fe8);
+
+  animation: shooting-star-move 11s linear infinite;
+  will-change: transform, opacity;
+}
+
+.shooting-star-one {
+  top: 15%;
+  left: 75%;
+  animation-delay: 1s;
+}
+
+.shooting-star-two {
+  top: 42%;
+  left: 95%;
+  animation-delay: 5s;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #d54491,
+    #ffffff
+  );
+}
+
+.shooting-star-three {
+  top: 75%;
+  left: 55%;
+  animation-delay: 8s;
+}
+
+@keyframes shooting-star-move {
+  0%,
+  80% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(-35deg);
+  }
+
+  82% {
+    opacity: 1;
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+    transform: translate3d(-350px, 250px, 0)
+      rotate(-35deg);
+  }
+}
+
+/* ==========================================
+   DANCING / FLOATING ASTRONAUT
+========================================== */
+
+.space-astronaut {
+  transform-origin: center center;
+  animation: astronaut-dance 7s ease-in-out infinite;
+
+  filter: drop-shadow(
+    0 0 15px rgba(21, 159, 232, 0.3)
+  );
+
+  will-change: transform;
+}
+
+@keyframes astronaut-dance {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-12deg);
+  }
+
+  25% {
+    transform: translate3d(-25px, -35px, 0)
+      rotate(12deg);
+  }
+
+  50% {
+    transform: translate3d(15px, -65px, 0)
+      rotate(-8deg);
+  }
+
+  75% {
+    transform: translate3d(35px, -25px, 0)
+      rotate(18deg);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-12deg);
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY / REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .space-star,
+  .space-asteroid,
+  .space-meteor,
+  .shooting-star,
+  .space-astronaut {
+    animation: none;
+    will-change: auto;
+  }
+
+  .astro-nav-link,
+  .astro-join-button {
+    transition: none;
+  }
+}
+
+/* =====================================
+   SMALLER MOON
+===================================== */
+
+.moon-body {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+/* =====================================
+   SPARKLING MOON TRAIL
+===================================== */
+
+.moon-sparkle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  pointer-events: none;
+
+  background: #ffffff;
+  box-shadow:
+    0 0 6px currentColor,
+    0 0 15px currentColor;
+
+  animation: sparkle-twinkle 1.5s ease-in-out infinite alternate;
+}
+
+/* Sparkles positioned along the orbit,
+   just behind the moving Moon */
+
+.moon-sparkle-1 {
+  color: #ff85c5;
+  background: #ff85c5;
+  transform: rotate(-8deg) translateX(46%);
+  offset-path: none;
+  left: 99%;
+  top: 43%;
+  animation-delay: 0s;
+}
+
+.moon-sparkle-2 {
+  color: #159fe8;
+  background: #159fe8;
+  left: 97%;
+  top: 35%;
+  width: 4px;
+  height: 4px;
+  animation-delay: 0.2s;
+}
+
+.moon-sparkle-3 {
+  color: #ffffff;
+  left: 94%;
+  top: 29%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 0.4s;
+}
+
+.moon-sparkle-4 {
+  color: #d54491;
+  background: #d54491;
+  left: 90%;
+  top: 24%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 0.6s;
+}
+
+.moon-sparkle-5 {
+  color: #6ad8ff;
+  background: #6ad8ff;
+  left: 85%;
+  top: 19%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 0.8s;
+}
+
+.moon-sparkle-6 {
+  color: #ffffff;
+  left: 79%;
+  top: 15%;
+  width: 2px;
+  height: 2px;
+  animation-delay: 1s;
+}
+
+@keyframes sparkle-twinkle {
+  0% {
+    opacity: 0.15;
+    filter: brightness(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    filter: brightness(1.8);
+  }
+
+  100% {
+    opacity: 0.35;
+    filter: brightness(1);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+  .moon-body {
+    width: 23px;
+    height: 23px;
+  }
+
+  .moon-sparkle {
+    width: 3px;
+    height: 3px;
+  }
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+  .moon-sparkle {
+    animation: none;
+  }
+}
